@@ -4,6 +4,15 @@
 //!
 //! While it has a builder, the entity itself has a few premade
 //! entities for things such as walls.
+//!
+//! # Planned changes:
+//!
+//! - Implement warp
+//! - Give entities unique identifiers and type names.
+//! - Turn into a directory
+//! - Fill in empty structs
+//! - Find system for abilities with counters
+//! - Create LevelPoint of some kind or Rc and / or RefCell
 
 use crate::data::Data;
 use crate::helper::{Builder, BuilderError};
@@ -91,12 +100,19 @@ impl Abilities {
     }
 }
 
-/// A list of abilities, again may become a trait though
-/// Not completely likely. Entities should be explicit of
+/// A list of abilities, may become a trait though
+/// Not completely likely.
+///
+/// Entities should be explicit of
 /// what they can exactly do so game logic can react
 /// appropriately, this can be as simple as moving or
 /// as complex as summoning other entities.
 /// May get reworked to allow copy.
+///
+/// May also be split into a struct and enum to allow more
+/// specific abilities. such as adding AbilityProperties
+/// and AbilityType.
+///
 /// Note to self: Could have some preloaded entities not
 /// in the game directly for summoning.
 #[derive(Debug, Clone, PartialEq)]
@@ -112,6 +128,8 @@ pub enum Ability {
     Physical,
     /// Can clone itself
     Clone,
+    /// Lasts u32 turns.
+    Temporary(u32),
 }
 
 /// Sets alignment, used with Option for neutral. Can

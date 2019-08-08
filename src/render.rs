@@ -1,3 +1,6 @@
+//! Primary entry to the use of sdl2 graphics.
+//! Objects are rendered to the canvas here based on their positions, color, etc.
+
 use sdl2::pixels::Color;
 use sdl2::rect::Rect;
 use sdl2::render::Canvas;
@@ -6,6 +9,7 @@ use sdl2::video::Window;
 use crate::entity;
 use crate::math::{self, TwoDimensional};
 
+/// Renders all of the objects given to it onto the canvas.
 pub fn render_objects(
     tile_size: u32,
     screen_size: math::Dimension,
@@ -30,6 +34,7 @@ pub fn render_objects(
     canvas.present();
 }
 
+/// Create the player and tries to put them in the center of the canvas.
 pub fn render_player(
     tile_size: u32,
     screen_size: math::Dimension,
@@ -45,9 +50,10 @@ pub fn render_player(
     let (red, green, blue) = entity.get_skin().get_rgb_colors().unwrap();
 
     canvas.set_draw_color(Color::RGB(red, green, blue));
-    canvas.fill_rect(entity_rectangle);
+    canvas.fill_rect(entity_rectangle).unwrap();
 }
 
+/// Creates entities and places them relative to the player.
 pub fn render_entity(
     tile_size: u32,
     screen_size: math::Dimension,
@@ -66,5 +72,5 @@ pub fn render_entity(
     let (red, green, blue) = entity.get_skin().get_rgb_colors().unwrap();
 
     canvas.set_draw_color(Color::RGB(red, green, blue));
-    canvas.fill_rect(entity_rectangle);
+    canvas.fill_rect(entity_rectangle).unwrap();
 }

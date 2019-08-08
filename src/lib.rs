@@ -1,3 +1,11 @@
+//! Tiny RPG is a rpg that will allow the player to have a lot of control
+//! over their world and environment.
+//!
+//! Soon it will also be split into a game engine that uses the Entity
+//! enum to simplify making games.
+
+#![deny(missing_docs)]
+
 extern crate sdl2;
 
 pub mod data;
@@ -12,7 +20,8 @@ pub mod start;
 
 use render::*;
 
-/// The main loop. Events and such happen here
+/// The main loop. Events and such happen here. Takes the init structure
+/// to get start up information.
 // fix result here, an error enum would be cool to get past
 // dyn errors maybe dont bother with normal errors
 pub fn main_loop(init: start::Init) -> Result<(), ()> {
@@ -51,14 +60,15 @@ pub fn main_loop(init: start::Init) -> Result<(), ()> {
     Ok(())
 }
 
+/// WIP may be removed in the future.
 pub enum Screen {
-    MainMenu,
-    Settings,
-    Inventory,
-    Combat,
-    Game,
-    Dialog,
+    // MainMenu,
+//     Settings,
+//     Inventory,
+//     Combat,
+//     Game,
+//     Dialog,
 }
 
-/// What occurs after main loop
+/// WIP What occurs after main loop.
 pub fn main_end() {}

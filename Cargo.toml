@@ -1,8 +1,14 @@
 [package]
 name = "tiny_rpg"
+description = "An RPG that is a WIP using sdl2."
+keywords = ["rpg", "game"]
+categories = ["games"]
 version = "0.1.0"
+license = "GPL-3.0-only"
 authors = ["Shane Delaney <shanebdelaneyii@gmail.com>"]
 edition = "2018"
+repository = "https://github.com/baBounch/tiny_rpg"
+readme = "README.md"
 
 [dependencies]
 sdl2 = "0.32.2"
