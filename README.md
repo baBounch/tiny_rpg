@@ -20,3 +20,6 @@ Since a lot is changing fast, a lot of the documentation includes future plans a
 - A small campain
 - Possibly a scripting language for others to make levels and games easily.
 - Split game and engine, so people can more easily use the engine for their own games.
+
+
+Monkey D. Garb was here
